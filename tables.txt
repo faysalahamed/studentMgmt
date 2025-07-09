@@ -1,0 +1,25 @@
+-- SQL Script for SQL Server
+
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY IDENTITY(1,1), -- SQL Server specific for auto-increment
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DateOfBirth DATE NOT NULL,
+    Gender VARCHAR(10),
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    PhoneNumber VARCHAR(20),
+    Address VARCHAR(255),
+    City VARCHAR(50),
+    StateProvince VARCHAR(50),
+    PostalCode VARCHAR(10),
+    Country VARCHAR(50),
+    EnrollmentDate DATE NOT NULL,
+    Major VARCHAR(100),
+    GPA DECIMAL(3,2),
+    EmergencyContactName VARCHAR(100),
+    EmergencyContactPhone VARCHAR(20),
+    Status VARCHAR(20) NOT NULL DEFAULT 'Active'
+);
+
+CREATE INDEX idx_students_lastname ON Students (LastName);
+CREATE INDEX idx_students_email ON Students (Email);
